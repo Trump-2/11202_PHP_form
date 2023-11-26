@@ -1,5 +1,8 @@
 <?php
-echo $_POST['desc'];
+include_once '../db.php';
+
+// echo $_POST['desc'];
+
 // 確認檔案是否上傳成功，透過判斷暫存的路徑
 // tmp_name 是完整的路徑，包含檔名
 if (!empty($_FILES['img']['tmp_name'])) {
@@ -21,6 +24,14 @@ if (!empty($_FILES['img']['tmp_name'])) {
   $newFileName = date("YmdHis") . rand(10000, 99999) . "." . $subname;
   move_uploaded_file($_FILES['img']['tmp_name'], "../imgs/" . $newFileName);
 
+  $file = [
+    'name' => $newFileName,
+    'type' => $_FILES['img']['type'],
+    'size' => $_FILES['img']['size'],
+    'desc' => $_POST['desc']
+  ];
+
+  insert('files', $file);
   header('location:../manage.php');
 } else {
   header('location:../upload.php?err=上傳失敗');

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 1.建立表單
  * 2.建立處理檔案程式
@@ -23,30 +24,30 @@
   <!----建立你的表單及設定編碼----->
 
   <?php
-if(isset($_GET['err'])){
-  echo "<div style='color:red;'>{$_GET['err']}</div>";
-}
+  if (isset($_GET['err'])) {
+    echo "<div style='color:red;'>{$_GET['err']}</div>";
+  }
 
 
-?>
+  ?>
 
 
   <form action="api/upload.php" method="post" enctype="multipart/form-data">
 
     <input type="file" name="img" id="">
-    <input type="text" name="desc" id="" value="描述">
+    <input type="text" name="desc" id="" value="" placeholder="請輸入描述">
     <input type="submit" value="上傳">
   </form>
 
 
   <!----建立一個連結來查看上傳後的圖檔---->
   <?php
-if(isset($_GET['img'])){
-  echo "<img src='imgs/{$_GET['img']}' style='width:250px; height:150px'>";
-}
+  if (isset($_GET['img'])) {
+    echo "<img src='imgs/{$_GET['img']}' style='width:250px; height:150px'>";
+  }
 
 
-?>
+  ?>
 </body>
 
 </html>
