@@ -20,6 +20,8 @@
     font-size:30px;
 
 }
+
+
 .types:hover{
     border:2px solid blue;
     background:lightcyan;
@@ -30,3 +32,4 @@
     text-align: center;
     font-size:32px;
 }
+
