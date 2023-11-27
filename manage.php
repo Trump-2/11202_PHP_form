@@ -94,7 +94,8 @@ include_once "db.php";
           <?= $file['create_at']; ?>
         </td>
         <td>
-          <button class="btn btn-primary">編輯</button>
+          <button class="btn btn-primary"
+            onclick="location.href='./api/edit_file.php?id=<?= $file['id'] ?>'">編輯</button>
           <button class="btn btn-danger" onclick="location.href='./api/del_file.php?id=<?= $file['id'] ?>'">刪除</button>
         </td>
       </tr>
