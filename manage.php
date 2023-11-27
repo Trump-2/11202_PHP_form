@@ -95,7 +95,7 @@ include_once "db.php";
         </td>
         <td>
           <button class="btn btn-primary">編輯</button>
-          <button class="btn btn-danger"><a href="./api/del_file.php?id=<?= $file['id'] ?>">刪除</a></button>
+          <button class="btn btn-danger" onclick="location.href='./api/del_file.php?id=<?= $file['id'] ?>'">刪除</button>
         </td>
       </tr>
 
