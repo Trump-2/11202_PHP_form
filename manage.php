@@ -80,26 +80,26 @@ include_once "db.php";
           <?= $file['id']; ?>
         </td>
         <!-- 下面這一行的 $file['name'] 跟 imgs 後面的 2023112316302713652.jpg 一樣，所以把它放到 imgs 的後面  -->
-        <td><img style="width:150px;height:120px;" src="<?= $imgname ?>" alt=""></td>
-        <td>
-          <?= $file['type']; ?>
-        </td>
-        <td>
-          <?= $file['size']; ?>
-        </td>
-        <td>
-          <?= $file['desc']; ?>
-        </td>
-        <td>
-          <?= $file['create_at']; ?>
-        </td>
-        <td>
-          <button class="btn btn-primary" onclick="location.href='./edit_file.php?id=<?= $file['id'] ?>'">編輯</button>
-          <button class="btn btn-danger" onclick="location.href='./api/del_file.php?id=<?= $file['id'] ?>'">刪除</button>
-        </td>
-      </tr>
+          <td><img style="width:150px;height:120px;" src="<?= $imgname ?>" alt=""></td>
+          <td>
+            <?= $file['type']; ?>
+          </td>
+          <td>
+            <?= $file['size']; ?>
+          </td>
+          <td>
+            <?= $file['desc']; ?>
+          </td>
+          <td>
+            <?= $file['create_at']; ?>
+          </td>
+          <td>
+            <button class="btn btn-primary" onclick="location.href='./edit_file.php?id=<?= $file['id'] ?>'">編輯</button>
+            <button class="btn btn-danger" onclick="location.href='./api/del_file.php?id=<?= $file['id'] ?>'">刪除</button>
+          </td>
+        </tr>
 
-      <?php
+        <?php
       }
       ?>
     </table>
@@ -108,7 +108,7 @@ include_once "db.php";
 
   <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-  </script>
+    </script>
 </body>
 </body>
 
