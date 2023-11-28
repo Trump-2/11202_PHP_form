@@ -64,7 +64,7 @@ if (isset($_GET['id'])) {
           ?>
           <td>媒體</td>
           <img src="<?= $imgname; ?>" alt="" style="width:200px; 200px;">
-          <td><input type=" file" name="img"></td> <!-- file 屬性的 input 沒有 value 這個屬性 -->
+          <td><input type="file" name="img"></td> <!-- file 屬性的 input 沒有 value 這個屬性 -->
         </tr>
         <tr>
           <td>檔名</td>
