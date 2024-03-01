@@ -31,6 +31,9 @@
     <a href="catpcha.php">
         <div class="types">圖形處理-圖形驗證碼</div>
     </a>
+    <a href="text-import.php">
+        <div class="types">文字檔案匯入練習</div>
+    </a>
 </body>
 
 </html>
