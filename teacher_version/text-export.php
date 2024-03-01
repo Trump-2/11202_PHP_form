@@ -33,28 +33,30 @@ if (!empty($_POST)) {
 ?>
 
 <style>
-    table {
-        border-collapse: collapse;
-    }
+table {
+    border-collapse: collapse;
+}
 
-    td {
-        border: 1px solid #666;
-        padding: 5px 12px;
-    }
+td {
+    border: 1px solid #666;
+    padding: 5px 12px;
+}
 
-    th {
-        border: 1px solid #666;
-        padding: 5px 12px;
-        background: #000;
-        color: #fff;
-    }
+th {
+    border: 1px solid #666;
+    padding: 5px 12px;
+    background: #000;
+    color: #fff;
+}
 </style>
 
+<script src="./jquery-3.4.1.min.js"></script>
+
 <form action="?" method="post">
-    <input type="submit" value="匯出">
+    <input type="submit" value="匯出選擇的資料">
     <table>
         <tr>
-            <th>勾選</th>
+            <th>勾選 <input type="checkbox" name="" id="select"></th>
             <th>投票所編</th>
             <th>投票所</th>
             <th>候選人1</th>
@@ -94,3 +96,13 @@ if (!empty($_POST)) {
 
     </table>
 </form>
+
+<script>
+$("#select").on("change", function() {
+    if ($(this).prop('checked')) {
+        $("input[name='select[]']").prop('checked', true);
+    } else {
+        $("input[name='select[]']").prop('checked', false);
+    }
+})
+</script>
