@@ -10,7 +10,7 @@ include "db_export.php";
 
 $options = new Options();
 // $options->set('defaultFont', 'Courier');
-$options->set('defaultFont', './fonts/msjh.ttc');
+$options->set('defaultFont', 'bk');
 $dompdf = new Dompdf($options);
 
 
@@ -20,6 +20,16 @@ if (!empty($_POST)) {
 
     // $filename = date("Ymd") . rand(100000000, 999999999);
     $filename = date("Ymd") . rand(100000000, 999999999) . ".pdf";
+
+    $imagePath = "./icon/wda.png";
+    $imageData = file_get_contents($imagePath);
+
+    $base64Image = base64_encode($imageData);
+
+    $dataUri = 'data:image/png;base64,' . $base64Image;
+
+
+
     // $file = fopen("./doc/{$filename}.csv", "w+"); // w+ 是內建參數
 
     // 加入 utf-8 編碼的 BOM
@@ -31,8 +41,32 @@ if (!empty($_POST)) {
         <meta charset='UTF-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <title>Document</title>
-    </head>
-    <body>";
+        <style>
+        table{
+            border-collapse:collapse;
+            font-size:12px;
+        }
+        td{
+            border:1px solid #666;
+            padding:5px;
+        }
+
+        
+        tr:nth-child(odd){
+            background:lightgreen;
+        }
+
+        
+        tr:first-child{
+            background:black;
+            color:white;
+            font-weight:bold;
+        }
+        
+        </head>
+    <body>
+<img src='{$dataUri}' style='width:150px;height:150px'>
+";
 
 
 
@@ -44,20 +78,29 @@ if (!empty($_POST)) {
         if (!$chk) {
             $cols = array_keys($row);
             $html .= "<tr>";
-            foreach ($cols as $col) {
+            foreach ($cols as $idx => $col) {
+
                 $html .= "<td>";
                 $html .= $col;
                 $html .= "</td>";
+                if ($idx == 7) {
+                    $html .= "</tr>";
+                    $html .= "<tr>";
+                }
             }
             $html .= "</tr>";
             $chk = true;
         }
         // fwrite($file, join(',', $row) . "\r\n"); // \r\n 代表換行，適用於 windows 系統；\n 也代表換行，用於 unix、linux 系統
         $html .= "<tr>";
-        foreach ($row as $r) {
+        foreach ($row as $key => $r) {
             $html .= "<td>";
             $html .= $r;
             $html .= "</td>";
+            if ($key == '候選人3票數') {
+                $html .= "</tr>";
+                $html .= "<tr>";
+            }
         }
         $html .= "</tr>";
     }
@@ -69,12 +112,14 @@ if (!empty($_POST)) {
 
     $dompdf->loadHtml($html);
 
+    $dompdf->setPaper('A4', 'landscape');
+
     $dompdf->render();
 
 
     $dompdf->stream("./doc/{$filename}", array('Attachment' => 0));
 
-    fclose($file);
+    // fclose($file);
 
     // download 參數:讓 href 連結到的檔案變成可下載
     echo "<a href='./doc/{$filename}' download>檔案已匯出，請點此連結下載</a>";
@@ -100,7 +145,6 @@ th {
 </style>
 
 <script src="./jquery-3.4.1.min.js"></script>
-
 <form action="?" method="post">
     <input type="submit" value="匯出選擇的資料">
     <table>

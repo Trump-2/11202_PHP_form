@@ -1,0 +1,14 @@
+   {
+    "dfs": {
+        "normal": "E:\\php_all_project\\ME\\11202_PHP_form\\vendor\\dompdf\\dompdf\/lib\/fonts\/DFPingJuStd-W7",
+        "bold": "E:\\php_all_project\\ME\\11202_PHP_form\\vendor\\dompdf\\dompdf\/lib\/fonts\/DFPingJuStd-W7",
+        "italic": "E:\\php_all_project\\ME\\11202_PHP_form\\vendor\\dompdf\\dompdf\/lib\/fonts\/DFPingJuStd-W7",
+        "bold_italic": "E:\\php_all_project\\ME\\11202_PHP_form\\vendor\\dompdf\\dompdf\/lib\/fonts\/DFPingJuStd-W7"
+    },
+    "bk": {
+        "normal": "E:\\php_all_project\\ME\\11202_PHP_form\\vendor\\dompdf\\dompdf\/lib\/fonts\/kaiu",
+        "bold": "E:\\php_all_project\\ME\\11202_PHP_form\\vendor\\dompdf\\dompdf\/lib\/fonts\/kaiu",
+        "italic": "E:\\php_all_project\\ME\\11202_PHP_form\\vendor\\dompdf\\dompdf\/lib\/fonts\/kaiu",
+        "bold_italic": "E:\\php_all_project\\ME\\11202_PHP_form\\vendor\\dompdf\\dompdf\/lib\/fonts\/kaiu"
+    }
+}
